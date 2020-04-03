@@ -1,0 +1,180 @@
+img {
+    width: 100%;
+    height: auto;
+}
+.post-loading{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+.post-holder {
+    /* padding: 30px; */
+    margin-bottom: 30px;
+    /* border: 1px solid #ccc; */
+}
+.post__img{
+  margin-bottom: 20px;
+    min-height: 232px;
+    background-position: center;
+    background-attachment: scroll;
+    background-size: contain;
+}
+.post__title {
+    font-size: 28px;
+    line-height: 30px;
+    min-height: 120px;
+}
+.post__excerpt {
+    font-size: 13px;
+    max-height: 100px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.post__excerpt .link-more{
+    display: none;
+}
+.post__meta {
+    display: inline-block;
+    font-size: 10px;
+    color: #808080;
+}
+.post__meta-value {
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.skelton {
+    height: 300px;
+    width: 300px;
+    background-repeat: no-repeat;
+    background-position: 50% 24px, 13px 140px, 15px 200px, 0 0;
+    background-size: 64px 64px, 270px 40px, 270px 23px, 100% 100%;
+    background-image: radial-gradient(circle 30px, #ccc 100%, transparent), linear-gradient(#ccc, #ccc), linear-gradient(#ccc, #ccc), linear-gradient(#f1f1f1,#f1f1f1);
+}
+.post__img:empty{
+    position: relative;
+    overflow: hidden;
+    min-height: 232px;
+    width: 348px;
+    background-repeat: no-repeat;
+    background-position: 20px 20px;
+    background-size: 90% 190px;
+    background-image: linear-gradient(#ccc 100%, transparent);
+}
+.post__image-placeholder{
+    position: relative;
+    overflow: hidden;
+    min-height: 232px;
+    width: 348px;
+    background-repeat: no-repeat;
+    background-position: 20px 20px;
+    background-size: 90% 190px;
+    background-image: linear-gradient(#ccc 100%, transparent);
+}
+.post__placeholder {
+    position: relative;
+    overflow: hidden;
+    margin: 20px;
+    height: 488px;
+    width: 350px;
+    background-repeat: no-repeat;
+    background-position: 20px 20px, 20px 69%, 20px 96%, 0 0;
+    background-size: 90% 190px, 90% 140px, 90% 60px, 100% 100%;
+    background-image: linear-gradient(#ccc 100%, transparent), linear-gradient(#ccc, #ccc), linear-gradient(#ccc, #ccc), linear-gradient(#f1f1f1,#f1f1f1);
+}
+
+.post__placeholder::after {
+    content: "";
+    display: block;
+    background-color: #f1f1f152;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 99%;
+    height: 100%;
+    transform: translateX(0);
+    animation: 2s loadingContent ease-out infinite;
+}
+
+@keyframes loadingContent {
+    0% {
+     transform: translateX(-100%);
+   }
+   100% {
+     transform: translateX(110%);
+   }
+}
+
+.fade-and-scale-in {
+  animation-name: fadeAndScaleIn;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
+  animation-fill-mode: forwards;
+}
+
+.fade-and-scale-in-centered {
+  animation-name: fadeAndScaleInCentered;
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
+  animation-fill-mode: forwards;
+}
+
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
+  animation-fill-mode: forwards;
+}
+
+.rotate {
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeAndScaleIn {
+  from {
+    transform: scale(0.98);
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeAndScaleInCentered {
+  from {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
